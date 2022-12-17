@@ -1,21 +1,22 @@
-*{
-    box-sizing: border-box;
+function esPrimo(numero){
+    let divisores = 0;
+    for (let i = 0; i <= numero; i++) {
+        if(numero % i == 0){
+            divisores++;
+        }        
+    }
+    return divisores == 2;
 }
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background: #E5E5E5E5;
+function calcular() {
+    const numero = parseInt(document.getElementById('numero').value);
+
+    document.getElementById('resultado').innerHTML = `El número ` + numero + ` ` + (esPrimo(numero)? 'es primo': 'no es primo');
+    
+    return false;
 }
 
-main{
-    max-width: 800px;
-    width: 90%;
-    margin: auto;
-    padding: 60px;
-}
-
-h2{
-    color: hwb(235 0% 0%);
-    font-weight: bold;
-    text-align: center;
+function limpiar() {
+    document.getElementById('formulario').reset();
+    document.getElementById('resultado').innerHTML = '';
 }
